@@ -1,0 +1,48 @@
+<section class="p-4">
+  <h1 class="mb-3">Filter Operator</h1>
+  <div class="mb-3 alert alert-primary">
+    Emit values that pass the provided condition.
+  </div>
+  <div class="row g-4">
+    <!-- 1 -->
+    <div class="col-md-6">
+      <h5>Example - 01</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>from</strong>([1, 2, 3, 4, 5, 6, 7, 8, 9,
+        10]).pipe(<strong>filter</strong>((x) => x % 2 === 0))
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of filterOneArr">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 2 -->
+    <div class="col-md-6">
+      <h5>Example - 02</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>from</strong>([1, 2, 3, 4, 5, 6, 7, 8, 9,
+        10]).pipe(<strong>filter</strong>((x) => x % 2 === 1))
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of filterTwoArr">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 3 -->
+    <div class="col-md-6">
+      <h5>Example - 03</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>from</strong>([&#123;age:25&#125;, &#123;age:42&#125;,
+        &#123;age:36&#125;, &#123;age:27&#125;,
+        &#123;age:51&#125;]).pipe(<strong>filter</strong>((x) => x.age > 30))
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of filterThreeArr">{{ item | json }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

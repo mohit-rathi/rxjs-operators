@@ -1,0 +1,39 @@
+<section class="p-4">
+  <h1 class="mb-3">Map Operator</h1>
+  <div class="mb-3 alert alert-primary">
+    Applies a given project function to each value emitted by the source
+    Observable, and emits the resulting values as an Observable.
+  </div>
+  <div class="row g-4">
+    <!-- 1 -->
+    <div class="col-md-6">
+      <h5>Example - 01</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>(1, 2, 3, 4, 5)
+        <br />
+        <strong>map</strong>((x) => x * 10)
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of mapOneArr">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 2 -->
+    <div class="col-md-6">
+      <h5>Example - 02</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>>("John Doe", "Bruce Wayne", "Tony Stark", "Tom
+        Cruise", "Sam Witwicky")
+        <br />
+        <strong>map</strong>((x) => &#123; const [first, last] = x.split(' ');
+        return first.charAt(0) + last.charAt(0); &#125;)
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of mapTwoArr">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

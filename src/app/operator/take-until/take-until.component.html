@@ -1,0 +1,22 @@
+<section class="p-4">
+  <h1 class="mb-3">Take Until Operator</h1>
+  <div class="mb-3 alert alert-primary">
+    Emits the values emitted by the source Observable until a notifier
+    Observable emits a value.
+  </div>
+  <div class="row g-4">
+    <!-- 1 -->
+    <div class="col-md-6">
+      <h5>Example - 01</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>interval</strong>(1000).pipe(<strong>takeUntil</strong>(sub$))
+      </p>
+      <hr />
+      <button class="mb-3 btn btn-primary" (click)="stop()">Stop</button>
+      <ul>
+        <li *ngFor="let item of takeUntilOneArr">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
