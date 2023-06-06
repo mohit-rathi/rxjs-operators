@@ -35,11 +35,7 @@
         <strong>of</strong>(&#123; a: "John", b: "Bruce", c: "Peter" &#125;)
       </p>
       <hr />
-      <ul>
-        <li>{{ obsThreeObj.a }}</li>
-        <li>{{ obsThreeObj.b }}</li>
-        <li>{{ obsThreeObj.c }}</li>
-      </ul>
+      {{ obsThreeObj | json }}
     </div>
     <!-- 4 -->
     <div class="col-md-6">
@@ -49,9 +45,7 @@
         <strong>of</strong>(["John", "Bruce", "Peter"])
       </p>
       <hr />
-      <ul>
-        <li *ngFor="let item of obsFourArr">{{ item }}</li>
-      </ul>
+      {{ obsFourArr | json }}
     </div>
   </div>
 </section>
