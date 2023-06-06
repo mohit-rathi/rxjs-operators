@@ -13,7 +13,9 @@
         <strong>interval</strong>(1000).pipe(<strong>takeUntil</strong>(sub$))
       </p>
       <hr />
-      <button class="mb-3 btn btn-primary" (click)="stop()">Stop</button>
+      <button class="mb-3 btn btn-primary" (click)="stop()">
+        sub$.next(0)
+      </button>
       <ul>
         <li *ngFor="let item of takeUntilOneArr">{{ item }}</li>
       </ul>
