@@ -1,0 +1,38 @@
+<section class="p-4">
+  <h1 class="mb-3">Merge Operator</h1>
+  <div class="mb-3 alert alert-primary">
+    Merge the values from all observables to a single observable result.
+  </div>
+  <div class="row g-4">
+    <!-- 1 -->
+    <div class="col-md-6">
+      <h5>Stream - 01</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>interval</strong>(1000).pipe(<strong>take</strong>(3))
+      </p>
+      <hr />
+    </div>
+    <!-- 2 -->
+    <div class="col-md-6">
+      <h5>Stream - 02</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>interval</strong>(1500).pipe(<strong>take</strong>(3))
+      </p>
+      <hr />
+    </div>
+    <!-- 3 -->
+    <div class="col">
+      <h5>Merged Stream</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>merge</strong>(obs1$, obs2$)
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of arr">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
