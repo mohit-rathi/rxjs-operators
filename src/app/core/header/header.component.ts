@@ -16,6 +16,10 @@ export class HeaderComponent {
       href: '/from',
     },
     {
+      title: 'Tap',
+      href: '/tap',
+    },
+    {
       title: 'Map',
       href: '/map',
     },
@@ -42,6 +46,10 @@ export class HeaderComponent {
     {
       title: 'Concat With',
       href: '/concat-with',
+    },
+    {
+      title: 'Merge',
+      href: '/merge',
     },
   ];
 }

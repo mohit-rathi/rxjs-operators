@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // components
 import { OfComponent } from './operator/of/of.component';
 import { FromComponent } from './operator/from/from.component';
+import { TapComponent } from './operator/tap/tap.component';
 import { MapComponent } from './operator/map/map.component';
 import { FilterComponent } from './operator/filter/filter.component';
 import { TakeComponent } from './operator/take/take.component';
@@ -11,6 +12,7 @@ import { TakeUntilComponent } from './operator/take-until/take-until.component';
 import { DebounceTimeComponent } from './operator/debounce-time/debounce-time.component';
 import { DistinctUntilChangedComponent } from './operator/distinct-until-changed/distinct-until-changed.component';
 import { ConcatWithComponent } from './operator/concat-with/concat-with.component';
+import { MergeComponent } from './operator/merge/merge.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,10 @@ const routes: Routes = [
   {
     path: 'from',
     component: FromComponent,
+  },
+  {
+    path: 'tap',
+    component: TapComponent,
   },
   {
     path: 'map',
@@ -53,6 +59,10 @@ const routes: Routes = [
   {
     path: 'concat-with',
     component: ConcatWithComponent,
+  },
+  {
+    path: 'merge',
+    component: MergeComponent,
   },
 ];
 
