@@ -55,5 +55,9 @@ export class HeaderComponent {
       title: 'Merge Map',
       href: '/merge-map',
     },
+    {
+      title: 'Concat Map',
+      href: '/concat-map',
+    },
   ];
 }

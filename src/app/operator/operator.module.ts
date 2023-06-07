@@ -15,6 +15,7 @@ import { DistinctUntilChangedComponent } from './distinct-until-changed/distinct
 import { ConcatWithComponent } from './concat-with/concat-with.component';
 import { MergeComponent } from './merge/merge.component';
 import { MergeMapComponent } from './merge-map/merge-map.component';
+import { ConcatMapComponent } from './concat-map/concat-map.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
     ConcatWithComponent,
     MergeComponent,
     MergeMapComponent,
+    ConcatMapComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -45,6 +47,7 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
     ConcatWithComponent,
     MergeComponent,
     MergeMapComponent,
+    ConcatMapComponent,
   ],
 })
 export class OperatorModule {}

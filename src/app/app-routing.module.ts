@@ -14,6 +14,7 @@ import { DistinctUntilChangedComponent } from './operator/distinct-until-changed
 import { ConcatWithComponent } from './operator/concat-with/concat-with.component';
 import { MergeComponent } from './operator/merge/merge.component';
 import { MergeMapComponent } from './operator/merge-map/merge-map.component';
+import { ConcatMapComponent } from './operator/concat-map/concat-map.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,10 @@ const routes: Routes = [
   {
     path: 'merge-map',
     component: MergeMapComponent,
+  },
+  {
+    path: 'concat-map',
+    component: ConcatMapComponent,
   },
 ];
 
