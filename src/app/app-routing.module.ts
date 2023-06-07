@@ -13,6 +13,7 @@ import { DebounceTimeComponent } from './operator/debounce-time/debounce-time.co
 import { DistinctUntilChangedComponent } from './operator/distinct-until-changed/distinct-until-changed.component';
 import { ConcatWithComponent } from './operator/concat-with/concat-with.component';
 import { MergeComponent } from './operator/merge/merge.component';
+import { MergeMapComponent } from './operator/merge-map/merge-map.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'merge',
     component: MergeComponent,
+  },
+  {
+    path: 'merge-map',
+    component: MergeMapComponent,
   },
 ];
 

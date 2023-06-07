@@ -14,6 +14,7 @@ import { DebounceTimeComponent } from './debounce-time/debounce-time.component';
 import { DistinctUntilChangedComponent } from './distinct-until-changed/distinct-until-changed.component';
 import { ConcatWithComponent } from './concat-with/concat-with.component';
 import { MergeComponent } from './merge/merge.component';
+import { MergeMapComponent } from './merge-map/merge-map.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MergeComponent } from './merge/merge.component';
     DistinctUntilChangedComponent,
     ConcatWithComponent,
     MergeComponent,
+    MergeMapComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -42,6 +44,7 @@ import { MergeComponent } from './merge/merge.component';
     DistinctUntilChangedComponent,
     ConcatWithComponent,
     MergeComponent,
+    MergeMapComponent,
   ],
 })
 export class OperatorModule {}
