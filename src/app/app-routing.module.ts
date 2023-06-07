@@ -15,6 +15,7 @@ import { ConcatWithComponent } from './operator/concat-with/concat-with.componen
 import { MergeComponent } from './operator/merge/merge.component';
 import { MergeMapComponent } from './operator/merge-map/merge-map.component';
 import { ConcatMapComponent } from './operator/concat-map/concat-map.component';
+import { SwitchMapComponent } from './operator/switch-map/switch-map.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path: 'concat-map',
     component: ConcatMapComponent,
+  },
+  {
+    path: 'switch-map',
+    component: SwitchMapComponent,
   },
 ];
 

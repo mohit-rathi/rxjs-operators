@@ -59,5 +59,9 @@ export class HeaderComponent {
       title: 'Concat Map',
       href: '/concat-map',
     },
+    {
+      title: 'Switch Map',
+      href: '/switch-map',
+    },
   ];
 }
