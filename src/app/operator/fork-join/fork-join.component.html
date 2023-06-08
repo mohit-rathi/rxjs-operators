@@ -1,0 +1,42 @@
+<section class="p-4">
+  <h1 class="mb-3">Fork Join Operator</h1>
+  <div class="mb-3 alert alert-primary">
+    When all observables complete, emit the last emitted value from each.
+  </div>
+  <div class="row g-4">
+    <!-- 1 -->
+    <div class="col-md-4">
+      <h5>Stream - 01</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>('John', 'Bruce', 'Tony', 'Sam', 'Peter')
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of nameArr">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 2 -->
+    <div class="col-md-4">
+      <h5>Stream - 02</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>('Blue', 'Yellow', 'Pink', 'Green', 'Orange')
+      </p>
+      <hr />
+      <ul>
+        <li *ngFor="let item of colorArr">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 3 -->
+    <div class="col-md-4">
+      <h5>Fork Join</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>forkJoin</strong>([name$, color$])
+      </p>
+      <hr />
+      {{ forkArr | json }}
+    </div>
+  </div>
+</section>

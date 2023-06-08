@@ -18,6 +18,7 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
 import { SwitchMapComponent } from './switch-map/switch-map.component';
 import { ZipComponent } from './zip/zip.component';
+import { ForkJoinComponent } from './fork-join/fork-join.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ZipComponent } from './zip/zip.component';
     ConcatMapComponent,
     SwitchMapComponent,
     ZipComponent,
+    ForkJoinComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -54,6 +56,7 @@ import { ZipComponent } from './zip/zip.component';
     ConcatMapComponent,
     SwitchMapComponent,
     ZipComponent,
+    ForkJoinComponent,
   ],
 })
 export class OperatorModule {}

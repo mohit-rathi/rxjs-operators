@@ -17,6 +17,7 @@ import { MergeMapComponent } from './operator/merge-map/merge-map.component';
 import { ConcatMapComponent } from './operator/concat-map/concat-map.component';
 import { SwitchMapComponent } from './operator/switch-map/switch-map.component';
 import { ZipComponent } from './operator/zip/zip.component';
+import { ForkJoinComponent } from './operator/fork-join/fork-join.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
     path: 'zip',
     component: ZipComponent,
+  },
+  {
+    path: 'fork-join',
+    component: ForkJoinComponent,
   },
 ];
 

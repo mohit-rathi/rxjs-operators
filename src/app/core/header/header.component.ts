@@ -67,5 +67,9 @@ export class HeaderComponent {
       title: 'Zip',
       href: '/zip',
     },
+    {
+      title: 'Fork Join',
+      href: '/fork-join',
+    },
   ];
 }
