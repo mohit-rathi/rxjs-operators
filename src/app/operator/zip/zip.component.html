@@ -3,4 +3,28 @@
   <div class="mb-3 alert alert-primary">
     After all observables emit, emit values as an array.
   </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Names</strong>
+      <hr />
+      <select class="form-control" #name>
+        <option *ngFor="let name of nameList" [value]="name">{{ name }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <strong>Colors</strong>
+      <hr />
+      <select class="form-control" #color>
+        <option *ngFor="let color of colorList" [value]="color">
+          {{ color | titlecase }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr />
+  <div class="grid-container">
+    <div *ngFor="let box of boxList" [ngClass]="box.class">
+      {{ box.content }}
+    </div>
+  </div>
 </section>
