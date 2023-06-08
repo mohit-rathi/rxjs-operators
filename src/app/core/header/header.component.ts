@@ -63,5 +63,9 @@ export class HeaderComponent {
       title: 'Switch Map',
       href: '/switch-map',
     },
+    {
+      title: 'Zip',
+      href: '/zip',
+    },
   ];
 }
