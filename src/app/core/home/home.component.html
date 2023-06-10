@@ -1,1 +1,66 @@
-<p>home works!</p>
+<section class="p-4">
+  <!-- Operators -->
+  <h1 class="mb-3">RxJS Operators</h1>
+  <p class="fs-5">
+    RxJS is mostly useful for its operators, even though the Observable is the
+    foundation. Operators are the essential pieces that allow complex
+    asynchronous code to be easily composed in a declarative manner.
+  </p>
+  <!-- Types -->
+  <h2 class="mb-3">What are operators?</h2>
+  <p class="fs-5">Operators are functions. There are two kinds of operators:</p>
+  <!-- Pipeable -->
+  <h3 class="mb-3">Pipeable Operators</h3>
+  <p class="fs-5">
+    A Pipeable Operator is a function that takes an Observable as its input and
+    returns another Observable. It is a pure operation: the previous Observable
+    stays unmodified.
+  </p>
+  <!-- Creation -->
+  <h3 class="mb-3">Creation Operators</h3>
+  <p class="fs-5">
+    Creation operators are functions that can be used to create an Observable
+    with some common predefined behavior or by joining other Observables.
+  </p>
+  <!-- Higher Order Observables -->
+  <h2 class="mb-3">Higher-order Observables</h2>
+  <p class="fs-5">
+    Observables most commonly emit ordinary values like strings and numbers, but
+    surprisingly often, it is necessary to handle Observables of Observables,
+    so-called higher-order Observables. But how do you work with a higher-order
+    Observable? Typically, by flattening: by converting a higher-order
+    Observable into an ordinary Observable.
+  </p>
+  <!-- Categories -->
+  <h2 class="mb-3">Operator Categories</h2>
+  <!-- Creation -->
+  <h3 class="mb-3">Creation</h3>
+  <ul>
+    <li *ngFor="let operator of creationList">{{ operator }}</li>
+  </ul>
+  <!-- Combination -->
+  <h3 class="mb-3">Combination</h3>
+  <ul>
+    <li *ngFor="let operator of combinationList">{{ operator }}</li>
+  </ul>
+  <!-- Transformation -->
+  <h3 class="mb-3">Transformation</h3>
+  <ul>
+    <li *ngFor="let operator of transformationList">{{ operator }}</li>
+  </ul>
+  <!-- Filtering -->
+  <h3 class="mb-3">Filtering</h3>
+  <ul>
+    <li *ngFor="let operator of filteringList">{{ operator }}</li>
+  </ul>
+  <!-- Join -->
+  <h3 class="mb-3">Join</h3>
+  <ul>
+    <li *ngFor="let operator of joinList">{{ operator }}</li>
+  </ul>
+  <!-- Utility -->
+  <h3 class="mb-3">Utility</h3>
+  <ul>
+    <li *ngFor="let operator of utilityList">{{ operator }}</li>
+  </ul>
+</section>
