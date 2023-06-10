@@ -1,6 +1,15 @@
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
   <div class="container-fluid">
-    <span class="navbar-brand" href="#">RxJS Operators</span>
+    <span class="navbar-brand">
+      <img
+        src="../../../assets/logo.png"
+        width="32"
+        height="32"
+        alt="logo"
+        class="me-2 d-inline-block align-text-top"
+      />
+      RxJS Operators
+    </span>
     <button
       class="navbar-toggler"
       type="button"
@@ -14,14 +23,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item" *ngFor="let routerLink of routerLinkList">
+        <li class="nav-item" *ngFor="let link of routerLinkList">
           <a
             class="nav-link"
-            [routerLink]="routerLink.href"
+            [routerLink]="link.href"
             routerLinkActive="active"
+            >{{ link.title }}</a
           >
-            {{ routerLink.title }}
-          </a>
         </li>
       </ul>
     </div>

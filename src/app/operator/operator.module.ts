@@ -19,6 +19,8 @@ import { ConcatMapComponent } from './concat-map/concat-map.component';
 import { SwitchMapComponent } from './switch-map/switch-map.component';
 import { ZipComponent } from './zip/zip.component';
 import { ForkJoinComponent } from './fork-join/fork-join.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,11 @@ import { ForkJoinComponent } from './fork-join/fork-join.component';
     SwitchMapComponent,
     ZipComponent,
     ForkJoinComponent,
+    DashboardComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [
+    DashboardComponent,
     OfComponent,
     FromComponent,
     TapComponent,

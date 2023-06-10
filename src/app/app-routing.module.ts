@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // components
+import { DashboardComponent } from './operator/dashboard/dashboard.component';
 import { OfComponent } from './operator/of/of.component';
 import { FromComponent } from './operator/from/from.component';
 import { TapComponent } from './operator/tap/tap.component';
@@ -22,8 +23,12 @@ import { ForkJoinComponent } from './operator/fork-join/fork-join.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'of',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
     path: 'of',

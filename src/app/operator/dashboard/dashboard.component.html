@@ -1,0 +1,12 @@
+<section class="p-4">
+  <h1 class="mb-3">Dashboard</h1>
+  <section class="grid-container">
+    <a
+      class="grid-item fs-3 text-center"
+      [routerLink]="operator.href"
+      *ngFor="let operator of operatorList"
+    >
+      {{ operator.title }}
+    </a>
+  </section>
+</section>

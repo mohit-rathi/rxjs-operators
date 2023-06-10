@@ -9,12 +9,49 @@
       <h5>Example - 01</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>of</strong>(1, 2, 3, 4, 5, 6, 7, 8, 9,
-        10).pipe(<strong>take</strong>(5))
+        <strong>of</strong>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        <br />
+        <strong>take</strong>(5)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of takeOneArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 2 -->
+    <div class="col-md-6">
+      <h5>Example - 02</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>interval</strong>(1000)
+        <br />
+        <strong>take</strong>(5)
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
       </ul>
     </div>
   </div>

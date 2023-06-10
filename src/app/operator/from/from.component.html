@@ -13,8 +13,19 @@
         <strong>from</strong>([1, 2, 3])
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of obsOneArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
       </ul>
     </div>
     <!-- 2 -->
@@ -25,8 +36,19 @@
         <strong>from</strong>(["John", "Bruce", "Peter"])
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of obsTwoArr">{{ item }}</li>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
       </ul>
     </div>
     <!-- 3 -->
@@ -35,8 +57,22 @@
       <hr />
       <p class="p-3 bg-light border rounded"><strong>from</strong>("ABC")</p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeThree()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeThree()"
+        >
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of obsThreeArr">{{ item }}</li>
+        <li *ngFor="let item of arrThree">{{ item }}</li>
       </ul>
     </div>
     <!-- 4 -->
@@ -48,7 +84,23 @@
         Resolved")))
       </p>
       <hr />
-      <p>{{ obsFourString }}</p>
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFour()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFour()"
+        >
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrFour">{{ item }}</li>
+      </ul>
     </div>
   </div>
 </section>

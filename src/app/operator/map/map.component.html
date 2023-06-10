@@ -12,11 +12,22 @@
       <p class="p-3 bg-light border rounded">
         <strong>of</strong>(1, 2, 3, 4, 5)
         <br />
-        <strong>map</strong>((x) => x * 10)
+        <strong>map</strong>(x => x * 10)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of mapOneArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
       </ul>
     </div>
     <!-- 2 -->
@@ -24,15 +35,24 @@
       <h5>Example - 02</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>of</strong>>("John Doe", "Bruce Wayne", "Tony Stark", "Tom
-        Cruise", "Sam Witwicky")
+        <strong>of</strong>>("John", "Bruce", "Peter", "Tony", "Sam")
         <br />
-        <strong>map</strong>((x) => &#123; const [first, last] = x.split(' ');
-        return first.charAt(0) + last.charAt(0); &#125;)
+        <strong>map</strong>(x => x.charAt(0))
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of mapTwoArr">{{ item }}</li>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
       </ul>
     </div>
   </div>

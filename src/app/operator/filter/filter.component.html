@@ -9,12 +9,24 @@
       <h5>Example - 01</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>([1, 2, 3, 4, 5, 6, 7, 8, 9,
-        10]).pipe(<strong>filter</strong>((x) => x % 2 === 0))
+        <strong>from</strong>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        <br />
+        <strong>filter</strong>(x => x % 2 === 0)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of filterOneArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
       </ul>
     </div>
     <!-- 2 -->
@@ -22,12 +34,24 @@
       <h5>Example - 02</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>([1, 2, 3, 4, 5, 6, 7, 8, 9,
-        10]).pipe(<strong>filter</strong>((x) => x % 2 === 1))
+        <strong>from</strong>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        <br />
+        <strong>filter</strong>(x => x % 2 === 1)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of filterTwoArr">{{ item }}</li>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
       </ul>
     </div>
     <!-- 3 -->
@@ -35,13 +59,28 @@
       <h5>Example - 03</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>([&#123;age:25&#125;, &#123;age:42&#125;,
-        &#123;age:36&#125;, &#123;age:27&#125;,
-        &#123;age:51&#125;]).pipe(<strong>filter</strong>((x) => x.age > 30))
+        <strong>from</strong>([&#123; age: 25 &#125;, &#123; age: 42 &#125;,
+        &#123; age: 36 &#125;, &#123; age: 27 &#125;, &#123; age: 51 &#125;])
+        <br />
+        <strong>filter</strong>(x => x.age > 30)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeThree()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeThree()"
+        >
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of filterThreeArr">{{ item | json }}</li>
+        <li *ngFor="let item of arrThree">{{ item | json }}</li>
       </ul>
     </div>
   </div>

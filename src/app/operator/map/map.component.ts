@@ -1,47 +1,66 @@
-import { Component, OnInit } from '@angular/core';
-import { map, of } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent implements OnInit {
-  mapOneArr: number[] = [];
-  mapTwoArr: string[] = [];
+export class MapComponent implements OnDestroy {
+  // Example - 01
+  public arrOne: number[] = [];
+  private obs1$ = of(1, 2, 3, 4, 5);
+  private map1$ = this.obs1$.pipe(map((x) => x * 10));
+  private subscriptionOne!: Subscription;
 
-  ngOnInit(): void {
-    const obs1$ = of(1, 2, 3, 4, 5);
-    const map1$ = obs1$.pipe(
-      map((x) => {
-        return x * 10;
-      })
-    );
+  // Example - 02
+  public arrTwo: string[] = [];
+  private obs2$ = of('John', 'Bruce', 'Peter', 'Tony', 'Sam');
+  private map2$ = this.obs2$.pipe(map((x) => x.charAt(0)));
+  private subscriptionTwo!: Subscription;
 
-    const obs2$ = of(
-      'John Doe',
-      'Bruce Wayne',
-      'Tony Stark',
-      'Tom Cruise',
-      'Sam Witwicky'
-    );
-    const map2$ = obs2$.pipe(
-      map((x) => {
-        const [first, last] = x.split(' ');
-        return first.charAt(0) + last.charAt(0);
-      })
-    );
+  ngOnDestroy(): void {
+    if (this.subscriptionOne) {
+      this.subscriptionOne.unsubscribe();
+    }
+    if (this.subscriptionTwo) {
+      this.subscriptionTwo.unsubscribe();
+    }
+  }
 
-    map1$.subscribe({
+  // Example - 01
+  public subscribeOne(): void {
+    this.unsubscribeOne();
+    this.subscriptionOne = this.map1$.subscribe({
       next: (data) => {
-        this.mapOneArr.push(data);
+        this.arrOne.push(data);
       },
     });
+  }
 
-    map2$.subscribe({
+  // Example - 01
+  public unsubscribeOne(): void {
+    if (this.subscriptionOne) {
+      this.arrOne.splice(0, this.arrOne.length);
+      this.subscriptionOne.unsubscribe();
+    }
+  }
+
+  // Example - 02
+  public subscribeTwo(): void {
+    this.unsubscribeTwo();
+    this.subscriptionTwo = this.map2$.subscribe({
       next: (data) => {
-        this.mapTwoArr.push(data);
+        this.arrTwo.push(data);
       },
     });
+  }
+
+  // Example - 02
+  public unsubscribeTwo(): void {
+    if (this.subscriptionTwo) {
+      this.arrTwo.splice(0, this.arrTwo.length);
+      this.subscriptionTwo.unsubscribe();
+    }
   }
 }
