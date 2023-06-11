@@ -9,6 +9,7 @@ import { ILink } from 'src/app/interfaces/link';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  public title: string = 'RxJS';
   public routerLinkList: ILink[] = [
     {
       title: 'Home',
