@@ -6,37 +6,57 @@
   <div class="row g-4">
     <!-- 1 -->
     <div class="col-md-4">
-      <h5>Stream - 01</h5>
+      <h5>Example - 01</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>of</strong>('John', 'Bruce', 'Tony', 'Sam', 'Peter')
+        <strong>of</strong>(1, 2, 3, 4, 5, 6, 7)
+        <br />
+        <strong>of</strong>('John', 'Bruce', 'Peter', 'Tony')
+        <br />
+        <strong>forkJoin</strong>([obs1$, obs2$])
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of nameArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item | json }}</li>
       </ul>
     </div>
     <!-- 2 -->
     <div class="col-md-4">
-      <h5>Stream - 02</h5>
+      <h5>Example - 02</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>of</strong>('Blue', 'Yellow', 'Pink', 'Green', 'Orange')
+        <strong>interval</strong>(500).pipe(take(5))
+        <br />
+        <strong>interval</strong>(500).pipe(take(8))
+        <br />
+        <strong>forkJoin</strong>([obs3$, obs4$])
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of colorArr">{{ item }}</li>
+        <li *ngFor="let item of arrTwo">{{ item | json }}</li>
       </ul>
-    </div>
-    <!-- 3 -->
-    <div class="col-md-4">
-      <h5>Fork Join</h5>
-      <hr />
-      <p class="p-3 bg-light border rounded">
-        <strong>forkJoin</strong>([name$, color$])
-      </p>
-      <hr />
-      {{ forkArr | json }}
     </div>
   </div>
 </section>
