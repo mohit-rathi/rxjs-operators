@@ -6,32 +6,29 @@
   <div class="row g-4">
     <!-- 1 -->
     <div class="col-md-6">
-      <h5>Stream - 01</h5>
+      <h5>Example - 01</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>interval</strong>(1000).pipe(<strong>take</strong>(3))
-      </p>
-      <hr />
-    </div>
-    <!-- 2 -->
-    <div class="col-md-6">
-      <h5>Stream - 02</h5>
-      <hr />
-      <p class="p-3 bg-light border rounded">
-        <strong>interval</strong>(1500).pipe(<strong>take</strong>(3))
-      </p>
-      <hr />
-    </div>
-    <!-- 3 -->
-    <div class="col">
-      <h5>Merged Stream</h5>
-      <hr />
-      <p class="p-3 bg-light border rounded">
+        <strong>interval</strong>(1000).pipe(<strong>take</strong>(5))
+        <br />
+        <strong>interval</strong>(1500).pipe(<strong>take</strong>(5))
+        <br />
         <strong>merge</strong>(obs1$, obs2$)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of arr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
       </ul>
     </div>
   </div>
