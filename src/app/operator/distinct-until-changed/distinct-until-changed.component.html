@@ -9,13 +9,24 @@
       <h5>Example - 01</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>[1, 1, 2, 2, 3, 3, 1]
+        <strong>from</strong>([1, 1, 2, 2, 3, 3, 1])
         <br />
         <strong>distinctUntilChanged</strong>()
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of distinctOneArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
       </ul>
     </div>
     <!-- 2 -->
@@ -23,16 +34,27 @@
       <h5>Example - 02</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>[&#123;name:"John"&#125;, &#123;name:"John"&#125;,
+        <strong>from</strong>([&#123;name:"John"&#125;, &#123;name:"John"&#125;,
         &#123;name:"Sam"&#125;, &#123;name:"Bruce"&#125;,
-        &#123;name:"Bruce"&#125;, &#123;name:"John"&#125;]
+        &#123;name:"Bruce"&#125;, &#123;name:"John"&#125;])
         <br />
         <strong>distinctUntilChanged</strong>((prev, curr) => prev.name ===
         curr.name)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of distinctTwoArr">{{ item | json }}</li>
+        <li *ngFor="let item of arrTwo">{{ item | json }}</li>
       </ul>
     </div>
   </div>
