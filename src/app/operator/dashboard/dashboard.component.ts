@@ -47,8 +47,8 @@ export class DashboardComponent {
       href: '/distinct-until-changed',
     },
     {
-      title: 'Concat With',
-      href: '/concat-with',
+      title: 'Concat',
+      href: '/concat',
     },
     {
       title: 'Merge',

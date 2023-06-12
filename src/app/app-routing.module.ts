@@ -13,7 +13,7 @@ import { TakeComponent } from './operator/take/take.component';
 import { TakeUntilComponent } from './operator/take-until/take-until.component';
 import { DebounceTimeComponent } from './operator/debounce-time/debounce-time.component';
 import { DistinctUntilChangedComponent } from './operator/distinct-until-changed/distinct-until-changed.component';
-import { ConcatWithComponent } from './operator/concat-with/concat-with.component';
+import { ConcatComponent } from './operator/concat/concat.component';
 import { MergeComponent } from './operator/merge/merge.component';
 import { MergeMapComponent } from './operator/merge-map/merge-map.component';
 import { ConcatMapComponent } from './operator/concat-map/concat-map.component';
@@ -72,8 +72,8 @@ const routes: Routes = [
     component: DistinctUntilChangedComponent,
   },
   {
-    path: 'concat-with',
-    component: ConcatWithComponent,
+    path: 'concat',
+    component: ConcatComponent,
   },
   {
     path: 'merge',

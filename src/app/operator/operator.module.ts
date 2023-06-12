@@ -12,7 +12,7 @@ import { TakeComponent } from './take/take.component';
 import { TakeUntilComponent } from './take-until/take-until.component';
 import { DebounceTimeComponent } from './debounce-time/debounce-time.component';
 import { DistinctUntilChangedComponent } from './distinct-until-changed/distinct-until-changed.component';
-import { ConcatWithComponent } from './concat-with/concat-with.component';
+import { ConcatComponent } from './concat/concat.component';
 import { MergeComponent } from './merge/merge.component';
 import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
@@ -33,7 +33,7 @@ import { RouterModule } from '@angular/router';
     TakeUntilComponent,
     DebounceTimeComponent,
     DistinctUntilChangedComponent,
-    ConcatWithComponent,
+    ConcatComponent,
     MergeComponent,
     MergeMapComponent,
     ConcatMapComponent,
