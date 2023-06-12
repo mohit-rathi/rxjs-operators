@@ -13,11 +13,22 @@
         <strong>interval</strong>(1000).pipe(<strong>takeUntil</strong>(sub$))
       </p>
       <hr />
-      <button class="mb-3 btn btn-primary" (click)="stop()">
-        sub$.next(0)
-      </button>
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="me-3 w-100 btn btn-outline-warning" (click)="stop()">
+          Stop
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of takeUntilOneArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">{{ item }}</li>
       </ul>
     </div>
   </div>
