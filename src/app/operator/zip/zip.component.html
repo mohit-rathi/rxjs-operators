@@ -3,28 +3,60 @@
   <div class="mb-3 alert alert-primary">
     After all observables emit, emit values as an array.
   </div>
-  <div class="row">
-    <div class="col-md-3">
-      <strong>Names</strong>
+  <div class="row g-4">
+    <!-- 1 -->
+    <div class="col-md-4">
+      <h5>Example - 01</h5>
       <hr />
-      <select class="form-control" #name>
-        <option *ngFor="let name of nameList" [value]="name">{{ name }}</option>
-      </select>
-    </div>
-    <div class="col-md-3">
-      <strong>Colors</strong>
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>(1, 2, 3, 4, 5)
+        <br />
+        <strong>of</strong>('John', 'Bruce', 'Peter', 'Tony', 'Sam')
+        <br />
+        <strong>zip</strong>(obs1$, obs2$)
+      </p>
       <hr />
-      <select class="form-control" #color>
-        <option *ngFor="let color of colorList" [value]="color">
-          {{ color | titlecase }}
-        </option>
-      </select>
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrOne">{{ item | json }}</li>
+      </ul>
     </div>
-  </div>
-  <hr />
-  <div class="grid-container">
-    <div *ngFor="let box of boxList" [ngClass]="box.class">
-      {{ box.content }}
+    <!-- 2 -->
+    <div class="col-md-4">
+      <h5>Example - 02</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>interval</strong>(1000).pipe(take(5))
+        <br />
+        <strong>interval</strong>(2000).pipe(take(5))
+        <br />
+        <strong>zip</strong>(obs3$, obs4$)
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrTwo">{{ item | json }}</li>
+      </ul>
     </div>
   </div>
 </section>
