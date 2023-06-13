@@ -1,68 +1,193 @@
 <section class="p-4">
-  <h1 class="mb-3">Switch Map Operator</h1>
+  <h1 class="mb-3">Concat Map Operator</h1>
   <div class="mb-3 alert alert-primary">
     Maps each value to an Observable, then flattens all of these inner
     Observables using switchAll.
   </div>
-  <div class="row g-4">
+  <div class="mb-4 row g-4">
     <!-- 1 -->
-    <div class="col-md-4">
-      <h5>Example - 01 | Map</h5>
+    <div class="col-12">
+      <h5>Example - 01</h5>
       <hr />
-      <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
-        <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(1000))
-      </p>
-      <hr />
-      <div class="row">
-        <div class="col-6">
-          <h6>Single Subscribe</h6>
-          <ul>
-            <li *ngFor="let item of exOnePartOneArr">
-              {{ item }}
-            </li>
-          </ul>
-        </div>
-        <div class="col-6">
-          <h6>Double Subscribe</h6>
-          <ul>
-            <li *ngFor="let item of exOnePartTwoArr">
-              {{ item }}
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-    <!-- 2 -->
+    <!-- 11 -->
     <div class="col-md-4">
-      <h5>Example - 02 | Map + SwitchAll</h5>
+      <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("Tech", "Blog", "News")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(1000))
+        <strong>.pipe</strong>(<strong>map</strong>(res => of(`$&#123;res&#125;
+        Video Uploaded`)))
+        <br />
+        inner observable: <strong>delay</strong>(2000)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exTwoArr">{{ item }}</li>
+        <li *ngFor="let item of arrOne">
+          {{ item }}
+        </li>
       </ul>
     </div>
-    <!-- 3 -->
+    <!-- 12 -->
     <div class="col-md-4">
-      <h5>Example - 03 | SwitchMap</h5>
+      <h5>Map + SwitchAll</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("Tech", "Blog", "News")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(1000))
+        <strong>.pipe</strong>(<strong>map</strong>(res => of(`$&#123;res&#125;
+        Video Uploaded`)), <strong>switchAll</strong>())
+        <br />
+        inner observable: <strong>delay</strong>(2000)
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exThreeArr">{{ item }}</li>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 13 -->
+    <div class="col-md-4">
+      <h5>SwitchMap</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("Tech", "Blog", "News")
+        <br />
+        <strong>.pipe</strong>(<strong>switchMap</strong>(res =>
+        of(`$&#123;res&#125; Video Uploaded`)))
+        <br />
+        inner observable: <strong>delay</strong>(2000)
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeThree()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeThree()"
+        >
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrThree">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row g-4">
+    <!-- 2 -->
+    <div class="col-12">
+      <h5>Example - 02</h5>
+      <hr />
+    </div>
+    <!-- 21 -->
+    <div class="col-md-4">
+      <h5>Map</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("hound", "mastiff", "retriever")
+        <br />
+        <strong>.pipe</strong>(<strong>map</strong>(res => http.get(url)))
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFour()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFour()"
+        >
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrFour">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+    <!-- 22 -->
+    <div class="col-md-4">
+      <h5>Map + SwitchAll</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("hound", "mastiff", "retriever")
+        <br />
+        <strong>.pipe</strong>(<strong>map</strong>(res => http.get(url)),
+        <strong>switchAll</strong>())
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFive()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFive()"
+        >
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrFive">{{ item | json }}</li>
+      </ul>
+    </div>
+    <!-- 23 -->
+    <div class="col-md-4">
+      <h5>SwitchMap</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("hound", "mastiff", "retriever")
+        <br />
+        <strong>.pipe</strong>(<strong>switchMap</strong>(res => http.get(url)))
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeSix()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeSix()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrSix">{{ item | json }}</li>
       </ul>
     </div>
   </div>
