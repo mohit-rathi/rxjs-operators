@@ -4,56 +4,190 @@
     Maps each value to an Observable, then flattens all of these inner
     Observables using mergeAll.
   </div>
-  <div class="row g-4">
+  <div class="mb-4 row g-4">
     <!-- 1 -->
+    <div class="col-12">
+      <h5>Example - 01</h5>
+      <hr />
+    </div>
+    <!-- 11 -->
     <div class="col-md-4">
-      <h5>Example - 01 | Map</h5>
+      <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("Tech", "Blog", "News")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video Uploaded`)
+        <strong>.pipe</strong>(<strong>map</strong>(res => of(`$&#123;res&#125;
+        Video Uploaded`)))
+        <br />
+        inner observable: <strong>delay</strong>(2000)
       </p>
       <hr />
-      <h6>Single Subscribe</h6>
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exOnePartOneArr">
-          {{ item }}
-        </li>
-      </ul>
-      <h6>Double Subscribe</h6>
-      <ul>
-        <li *ngFor="let item of exOnePartTwoArr">
+        <li *ngFor="let item of arrOne">
           {{ item }}
         </li>
       </ul>
     </div>
+    <!-- 12 -->
+    <div class="col-md-4">
+      <h5>Map + MergeAll</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("Tech", "Blog", "News")
+        <br />
+        <strong>.pipe</strong>(<strong>map</strong>(res => of(`$&#123;res&#125;
+        Video Uploaded`)), <strong>mergeAll</strong>())
+        <br />
+        inner observable: <strong>delay</strong>(2000)
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 13 -->
+    <div class="col-md-4">
+      <h5>MergeMap</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("Tech", "Blog", "News")
+        <br />
+        <strong>.pipe</strong>(<strong>mergeMap</strong>(res =>
+        of(`$&#123;res&#125; Video Uploaded`)))
+        <br />
+        inner observable: <strong>delay</strong>(2000)
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeThree()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeThree()"
+        >
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrThree">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row g-4">
     <!-- 2 -->
+    <div class="col-12">
+      <h5>Example - 02</h5>
+      <hr />
+    </div>
+    <!-- 21 -->
     <div class="col-md-4">
-      <h5>Example - 02 | Map + MergeAll</h5>
+      <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("hound", "mastiff", "retriever")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video Uploaded`)
+        <strong>.pipe</strong>(<strong>map</strong>(res => http.get(url)))
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFour()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFour()"
+        >
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exTwoArr">{{ item }}</li>
+        <li *ngFor="let item of arrFour">
+          {{ item }}
+        </li>
       </ul>
     </div>
-    <!-- 3 -->
+    <!-- 22 -->
     <div class="col-md-4">
-      <h5>Example - 03 | MergeMap</h5>
+      <h5>Map + MergeAll</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("hound", "mastiff", "retriever")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video Uploaded`)
+        <strong>.pipe</strong>(<strong>map</strong>(res => http.get(url)),
+        <strong>mergeAll</strong>())
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFive()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFive()"
+        >
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exThreeArr">{{ item }}</li>
+        <li *ngFor="let item of arrFive">{{ item | json }}</li>
+      </ul>
+    </div>
+    <!-- 23 -->
+    <div class="col-md-4">
+      <h5>MergeMap</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>of</strong>("hound", "mastiff", "retriever")
+        <br />
+        <strong>.pipe</strong>(<strong>mergeMap</strong>(res => http.get(url)))
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeSix()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeSix()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrSix">{{ item | json }}</li>
       </ul>
     </div>
   </div>

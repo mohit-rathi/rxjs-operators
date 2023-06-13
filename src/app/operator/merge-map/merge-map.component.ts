@@ -1,55 +1,220 @@
-import { Component, OnInit } from '@angular/core';
-import { from, map, mergeAll, mergeMap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription, delay, map, mergeAll, mergeMap, of } from 'rxjs';
 
 @Component({
   selector: 'app-merge-map',
   templateUrl: './merge-map.component.html',
   styleUrls: ['./merge-map.component.scss'],
 })
-export class MergeMapComponent implements OnInit {
-  public exOnePartOneArr: any[] = [];
-  public exOnePartTwoArr: string[] = [];
+export class MergeMapComponent implements OnDestroy {
+  // Example - 01
+  private obs1$ = of('Tech', 'Blog', 'News');
 
-  public exTwoArr: string[] = [];
+  // Map
+  private subscriptionOne!: Subscription;
+  public arrOne: any[] = [];
 
-  public exThreeArr: string[] = [];
+  // Map + MergeAll
+  private subscriptionTwo!: Subscription;
+  public arrTwo: any[] = [];
 
-  ngOnInit(): void {
-    const source = from(['Tech', 'Blog', 'News']);
+  // MergeMap
+  private subscriptionThree!: Subscription;
+  public arrThree: any[] = [];
 
-    // Example - 01 | Map
-    source.pipe(map((res) => this.getData(res))).subscribe({
-      next: (res) => {
-        this.exOnePartOneArr.push(res);
-        res.subscribe({
-          next: (res) => {
-            this.exOnePartTwoArr.push(res);
-          },
-        });
-      },
-    });
+  // Example - 02
+  private breed$ = of('hound', 'mastiff', 'retriever');
 
-    // Example - 02 | Map + MergeAll
-    source
+  // Map
+  private subscriptionFour!: Subscription;
+  public arrFour: any[] = [];
+
+  // Map + MergeAll
+  private subscriptionFive!: Subscription;
+  public arrFive: any[] = [];
+
+  // MergeMap
+  private subscriptionSix!: Subscription;
+  public arrSix: any[] = [];
+
+  constructor(private _http: HttpClient) {}
+
+  ngOnDestroy(): void {
+    if (this.subscriptionOne) {
+      this.subscriptionOne.unsubscribe();
+    }
+    if (this.subscriptionTwo) {
+      this.subscriptionTwo.unsubscribe();
+    }
+    if (this.subscriptionThree) {
+      this.subscriptionThree.unsubscribe();
+    }
+    if (this.subscriptionFour) {
+      this.subscriptionFour.unsubscribe();
+    }
+    if (this.subscriptionFive) {
+      this.subscriptionFive.unsubscribe();
+    }
+    if (this.subscriptionSix) {
+      this.subscriptionSix.unsubscribe();
+    }
+  }
+
+  // Example - 01 | Map
+  public subscribeOne(): void {
+    this.unsubscribeOne();
+    this.subscriptionOne = this.obs1$
       .pipe(
-        map((res) => this.getData(res)),
+        map((res) => {
+          return this.getData(res);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          this.arrOne.push(res);
+        },
+      });
+  }
+
+  // Example - 01 | Map
+  public unsubscribeOne(): void {
+    if (this.subscriptionOne) {
+      this.arrOne.splice(0, this.arrOne.length);
+      this.subscriptionOne.unsubscribe();
+    }
+  }
+
+  // Example - 01 | Map + MergeAll
+  public subscribeTwo(): void {
+    this.unsubscribeTwo();
+    this.subscriptionTwo = this.obs1$
+      .pipe(
+        map((res) => {
+          return this.getData(res);
+        }),
         mergeAll()
       )
       .subscribe({
         next: (res) => {
-          this.exTwoArr.push(res);
+          this.arrTwo.push(res);
         },
       });
-
-    // Example - 03 | MergeMap
-    source.pipe(mergeMap((res) => this.getData(res))).subscribe({
-      next: (res) => {
-        this.exThreeArr.push(res);
-      },
-    });
   }
 
+  // Example - 01 | Map + MergeAll
+  public unsubscribeTwo(): void {
+    if (this.subscriptionTwo) {
+      this.arrTwo.splice(0, this.arrTwo.length);
+      this.subscriptionTwo.unsubscribe();
+    }
+  }
+
+  // Example - 01 | MergeMap
+  public subscribeThree(): void {
+    this.unsubscribeThree();
+    this.subscriptionThree = this.obs1$
+      .pipe(
+        mergeMap((res) => {
+          return this.getData(res);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          this.arrThree.push(res);
+        },
+      });
+  }
+
+  // Example - 01 | MergeMap
+  public unsubscribeThree(): void {
+    if (this.subscriptionThree) {
+      this.arrThree.splice(0, this.arrThree.length);
+      this.subscriptionThree.unsubscribe();
+    }
+  }
+
+  // Example - 01
   public getData(data: string) {
-    return of(`${data} Video Uploaded`);
+    return of(`${data} Video Uploaded`).pipe(delay(2000));
+  }
+
+  // Example - 02 | Map
+  public subscribeFour(): void {
+    this.unsubscribeFour();
+    this.subscriptionFour = this.breed$
+      .pipe(
+        map((res) => {
+          return this.getBreed(res);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          this.arrFour.push(res);
+        },
+      });
+  }
+
+  // Example - 02 | Map
+  public unsubscribeFour(): void {
+    if (this.subscriptionFour) {
+      this.arrFour.splice(0, this.arrFour.length);
+      this.subscriptionFour.unsubscribe();
+    }
+  }
+
+  // Example - 02 | Map + MergeAll
+  public subscribeFive(): void {
+    this.unsubscribeFive();
+    this.subscriptionFive = this.breed$
+      .pipe(
+        map((res) => {
+          return this.getBreed(res);
+        }),
+        mergeAll()
+      )
+      .subscribe({
+        next: (res) => {
+          this.arrFive.push(res);
+        },
+      });
+  }
+
+  // Example - 02 | Map + MergeAll
+  public unsubscribeFive(): void {
+    if (this.subscriptionFive) {
+      this.arrFive.splice(0, this.arrFive.length);
+      this.subscriptionFive.unsubscribe();
+    }
+  }
+
+  // Example - 02 | MergeMap
+  public subscribeSix(): void {
+    this.unsubscribeSix();
+    this.subscriptionSix = this.breed$
+      .pipe(
+        mergeMap((res) => {
+          return this.getBreed(res);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          this.arrSix.push(res);
+        },
+      });
+  }
+
+  // Example - 02 | MergeMap
+  public unsubscribeSix(): void {
+    if (this.subscriptionSix) {
+      this.arrSix.splice(0, this.arrSix.length);
+      this.subscriptionSix.unsubscribe();
+    }
+  }
+
+  // Example - 02
+  public getBreed(breed: string) {
+    const url = `https://dog.ceo/api/breed/${breed}/list`;
+    return this._http.get<any>(url);
   }
 }
