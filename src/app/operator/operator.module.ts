@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // components
 import { OfComponent } from './of/of.component';
@@ -42,6 +43,6 @@ import { RouterModule } from '@angular/router';
     ForkJoinComponent,
     DashboardComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, HttpClientModule],
 })
 export class OperatorModule {}

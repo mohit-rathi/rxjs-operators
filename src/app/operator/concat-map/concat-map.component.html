@@ -4,10 +4,15 @@
     Maps each value to an Observable, then flattens all of these inner
     Observables using concatAll.
   </div>
-  <div class="row g-4">
+  <div class="mb-4 row g-4">
     <!-- 1 -->
-    <div class="col-md-6">
-      <h5>Example - 01 | Map</h5>
+    <div class="col-12">
+      <h5>Example - 01</h5>
+      <hr />
+    </div>
+    <!-- 11 -->
+    <div class="col-md-4">
+      <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
         <strong>from</strong>(["Tech", "Blog", "News"])
@@ -16,28 +21,88 @@
         Uploaded`).pipe(<strong>delay</strong>(2000))
       </p>
       <hr />
-      <div class="row">
-        <div class="col-6">
-          <h6>Single Subscribe</h6>
-          <ul>
-            <li *ngFor="let item of exOnePartOneArr">
-              {{ item }}
-            </li>
-          </ul>
-        </div>
-        <div class="col-6">
-          <h6>Double Subscribe</h6>
-          <ul>
-            <li *ngFor="let item of exOnePartTwoArr">
-              {{ item }}
-            </li>
-          </ul>
-        </div>
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeOne()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeOne()">
+          Unsubscribe
+        </button>
       </div>
+      <ul>
+        <li *ngFor="let item of arrOne">
+          {{ item }}
+        </li>
+      </ul>
     </div>
+    <!-- 12 -->
+    <div class="col-md-4">
+      <h5>Map + ConcatAll</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>from</strong>(["Tech", "Blog", "News"])
+        <br />
+        <strong>of</strong>(`$&#123;res&#125; Video
+        Uploaded`).pipe(<strong>delay</strong>(2000))
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeTwo()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeTwo()">
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrTwo">{{ item }}</li>
+      </ul>
+    </div>
+    <!-- 13 -->
+    <div class="col-md-4">
+      <h5>ConcatMap</h5>
+      <hr />
+      <p class="p-3 bg-light border rounded">
+        <strong>from</strong>(["Tech", "Blog", "News"])
+        <br />
+        <strong>of</strong>(`$&#123;res&#125; Video
+        Uploaded`).pipe(<strong>delay</strong>(2000))
+      </p>
+      <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeThree()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeThree()"
+        >
+          Unsubscribe
+        </button>
+      </div>
+      <ul>
+        <li *ngFor="let item of arrThree">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row g-4">
     <!-- 2 -->
-    <div class="col-md-6">
-      <h5>Example - 02 | Map + ConcatAll</h5>
+    <div class="col-12">
+      <h5>Example - 02</h5>
+      <hr />
+    </div>
+    <!-- 21 -->
+    <div class="col-md-4">
+      <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
         <strong>from</strong>(["Tech", "Blog", "News"])
@@ -46,13 +111,29 @@
         Uploaded`).pipe(<strong>delay</strong>(2000))
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFour()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFour()"
+        >
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exTwoArr">{{ item }}</li>
+        <li *ngFor="let item of arrFour">
+          {{ item }}
+        </li>
       </ul>
     </div>
-    <!-- 3 -->
-    <div class="col-md-6">
-      <h5>Example - 03 | ConcatMap</h5>
+    <!-- 22 -->
+    <div class="col-md-4">
+      <h5>Map + ConcatAll</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
         <strong>from</strong>(["Tech", "Blog", "News"])
@@ -61,13 +142,27 @@
         Uploaded`).pipe(<strong>delay</strong>(2000))
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeFive()"
+        >
+          Subscribe
+        </button>
+        <button
+          class="w-100 btn btn-outline-danger"
+          (click)="unsubscribeFive()"
+        >
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exThreeArr">{{ item }}</li>
+        <li *ngFor="let item of arrFive">{{ item | json }}</li>
       </ul>
     </div>
-    <!-- 4 -->
-    <div class="col-md-6">
-      <h5>Example - 04 | MergeMap</h5>
+    <!-- 23 -->
+    <div class="col-md-4">
+      <h5>ConcatMap</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
         <strong>from</strong>(["Tech", "Blog", "News"])
@@ -76,8 +171,19 @@
         Uploaded`).pipe(<strong>delay</strong>(2000))
       </p>
       <hr />
+      <div class="mb-3 d-flex">
+        <button
+          class="me-3 w-100 btn btn-outline-primary"
+          (click)="subscribeSix()"
+        >
+          Subscribe
+        </button>
+        <button class="w-100 btn btn-outline-danger" (click)="unsubscribeSix()">
+          Unsubscribe
+        </button>
+      </div>
       <ul>
-        <li *ngFor="let item of exFourArr">{{ item }}</li>
+        <li *ngFor="let item of arrSix">{{ item | json }}</li>
       </ul>
     </div>
   </div>
