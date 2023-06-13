@@ -15,10 +15,12 @@
       <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("Tech", "Blog", "News")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(2000))
+        <strong>.pipe</strong>(<strong>map</strong>(res => of(`$&#123;res&#125;
+        Video Uploaded`)))
+        <br />
+        inner observable: <strong>delay</strong>(2000)
       </p>
       <hr />
       <div class="mb-3 d-flex">
@@ -43,10 +45,12 @@
       <h5>Map + ConcatAll</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("Tech", "Blog", "News")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(2000))
+        <strong>.pipe</strong>(<strong>map</strong>(res => of(`$&#123;res&#125;
+        Video Uploaded`)), <strong>concatAll</strong>())
+        <br />
+        inner observable: <strong>delay</strong>(2000)
       </p>
       <hr />
       <div class="mb-3 d-flex">
@@ -69,10 +73,12 @@
       <h5>ConcatMap</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("Tech", "Blog", "News")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(2000))
+        <strong>.pipe</strong>(<strong>concatMap</strong>(res =>
+        of(`$&#123;res&#125; Video Uploaded`)))
+        <br />
+        inner observable: <strong>delay</strong>(2000)
       </p>
       <hr />
       <div class="mb-3 d-flex">
@@ -105,10 +111,9 @@
       <h5>Map</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("hound", "mastiff", "retriever")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(2000))
+        <strong>.pipe</strong>(<strong>map</strong>(res => http.get(url)))
       </p>
       <hr />
       <div class="mb-3 d-flex">
@@ -136,10 +141,10 @@
       <h5>Map + ConcatAll</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("hound", "mastiff", "retriever")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(2000))
+        <strong>.pipe</strong>(<strong>map</strong>(res => http.get(url)),
+        <strong>concatAll</strong>())
       </p>
       <hr />
       <div class="mb-3 d-flex">
@@ -165,10 +170,9 @@
       <h5>ConcatMap</h5>
       <hr />
       <p class="p-3 bg-light border rounded">
-        <strong>from</strong>(["Tech", "Blog", "News"])
+        <strong>of</strong>("hound", "mastiff", "retriever")
         <br />
-        <strong>of</strong>(`$&#123;res&#125; Video
-        Uploaded`).pipe(<strong>delay</strong>(2000))
+        <strong>.pipe</strong>(<strong>concatMap</strong>(res => http.get(url)))
       </p>
       <hr />
       <div class="mb-3 d-flex">
